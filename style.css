@@ -1,0 +1,145 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Georgia, Verdana, sans-serif;
+    min-height: 100vh;
+}
+
+.empty {
+    flex: 1;
+}
+
+.container {
+    display: flex;
+    width: 1000px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#newBook, .form {
+    color: rgb(65, 65, 65);
+}
+
+
+#newBook {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    font-size: 15px;
+    border-radius: 15px;
+    border-width: 2px;
+    border-color: rgb(70, 70, 70);
+    background-color: rgba(79, 79, 79, 0.961);
+    background-clip: padding-box;
+    color: white;
+    transition: 0.3s; 
+}
+
+#newBook:hover {
+    border-color: rgb(179, 179, 179);
+    background-color: rgba(226, 188, 238, 0.906);
+    transform: scale(1.05);
+    color: black;
+}
+
+.formBtns {
+    display: flex;
+    gap: 5px;
+}
+
+#submit, #cancel {
+    flex: 1;
+    display: flex;
+    width: 100px;
+    justify-content: center;
+    border-style: hidden;
+    border-radius: 5px;
+}
+
+#submit {
+    background-color: rgba(255, 0, 255, 0.6);
+}
+
+#submit:hover {
+    background-color: rgba(255, 0, 255, 0.3);   
+}
+
+#cancel {
+    background-color: rgba(128, 128, 128, 0.9);
+}
+
+#cancel:hover {
+    background-color: rgba(128, 128, 128, 0.3);
+}
+
+.form {
+    width: 200px;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    opacity: 0.5;
+    margin-bottom: 20px;
+}
+
+.form:hover {opacity: 1}
+
+.radio {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+.bookCard {
+    flex-shrink: 0;
+    border-style: solid;
+    border-width: thin;
+    border-color: rgba(109, 109, 109, 0.6);
+    border-radius: 20px;
+    width: 220px;
+    padding: 10px;
+    background-color: lightgrey;
+    background-clip: padding-box;
+    color: rgb(50, 49, 49);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.bookCard p {
+    margin: 5px;
+}
+
+.bookCard:hover {
+    background-color: rgba(226, 188, 238, 0.906);
+    border-color: white;
+    transform: scale(1.05);
+}
+
+.remove, .changestatus {
+    background-color: white;
+    border-style: hidden;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.remove:hover, .changestatus:hover {
+    background-color: rgb(184, 184, 184);
+}
+
+
+.footer {
+    color: black;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: grey;
+}
