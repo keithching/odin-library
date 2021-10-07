@@ -27,8 +27,7 @@ body {
     padding: 10px 20px;
     font-size: 15px;
     border-radius: 15px;
-    border-width: 2px;
-    border-color: rgb(70, 70, 70);
+    border-style: none;
     background-color: rgba(79, 79, 79, 0.961);
     background-clip: padding-box;
     color: white;
