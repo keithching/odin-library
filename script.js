@@ -6,20 +6,6 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
-// object constructor
-// function Book(author, title, pages, read) {
-//     this.author = author;
-//     this.title = title;
-//     this.pages = pages;
-//     this.read = read;
-//     this.status = function() {
-//         if (this.read) {
-//             return 'read';
-//         } else {
-//             return 'not read yet';
-//         }
-//     }
-// }
 
 // class for creating Book objects
 class Book {
@@ -38,8 +24,6 @@ class Book {
         }
     }
 }
-
-
 
 
 const submitBtn = document.querySelector('#submit');
