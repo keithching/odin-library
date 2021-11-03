@@ -25,23 +25,129 @@ class Book {
     }
 }
 
+const authorField = document.querySelector('#author');
+const authorFieldError = document.querySelector('#author + span.error');
+const titleField = document.querySelector('#title');
+const titleFieldError = document.querySelector('#title + span.error');
+const pagesField = document.querySelector('#pages');
+const pagesFieldError = document.querySelector('#pages + span.error');
+const readField = document.getElementById('read');
+const notreadField = document.getElementById('notread');
+const readnotreadFieldError = document.querySelector('.radio.error');
+
+
+// incorporate validity check during user input
+authorField.addEventListener('input', () => {
+    if (!authorField.validity.valid) {
+        authorFieldError.textContent = 'author name needed';
+    } else {
+        authorFieldError.textContent = '';
+    }
+});
+
+titleField.addEventListener('input', () => {
+    if (!titleField.validity.valid) {
+        titleFieldError.textContent = 'title name needed';
+    } else {
+        titleFieldError.textContent = '';
+    }
+});
+
+pagesField.addEventListener('input', () => {
+    if (!pagesField.validity.valid) {
+        pagesFieldError.textContent = 'pages needed';
+    } else {
+        pagesFieldError.textContent = '';
+    }
+});
+
+readField.addEventListener('change', () => {
+    readnotreadFieldError.textContent = '';
+});
+
+notreadField.addEventListener('change', () => {
+    readnotreadFieldError.textContent = '';
+});
+
 
 const submitBtn = document.querySelector('#submit');
 submitBtn.addEventListener('click', () => {
-    const author = document.querySelector('#author').value;
-    const title = document.querySelector('#title').value;
-    const pages = document.querySelector('#pages').value;
+
+    // input fields validity check
+    if (!authorField.checkValidity() || !titleField.checkValidity() || !pagesField.checkValidity() || 
+        (!readField.checked && !notreadField.checked)) {
+        showError();
+        return;
+    } else {
+        authorFieldError.textContent = '';
+        titleFieldError.textContent = '';
+        pagesFieldError.textContent = '';
+        readnotreadFieldError.textContent = '';
+    }
+
+
+    const author = authorField.value;
+    const title = titleField.value;
+    const pages = pagesField.value;
+
+
     let read = false;
-    if (document.getElementById('read').checked) {
+    if (readField.checked) {
         read = true;
-    } else if(document.getElementById('notread').checked) {
+    } else if(notreadField.checked) {
         read = false;
     }
 
     const book = new Book(author, title, pages, read);
     addBookToLibrary(book);
     refreshDisplay();
+
+    document.querySelector('#author').value = null;
+    document.querySelector('#title').value = null;
+    document.querySelector('#pages').value = null;
+    document.getElementById('read').checked = false;
+    document.getElementById('notread').checked = false;
+
 });
+
+function showError() {
+
+    // check for author field
+    if (!authorField.validity.valid) {
+
+        if (authorField.validity.valueMissing) {
+            authorFieldError.textContent = 'author name needed';
+        }
+
+    }
+
+    // check for title field
+    if (!titleField.validity.valid) {
+
+        if (titleField.validity.valueMissing) {
+            titleFieldError.textContent = 'title name needed';
+        }
+
+    }
+
+    // check for pages field
+    if (!pagesField.validity.valid) {
+
+        if (pagesField.validity.valueMissing) {
+            pagesFieldError.textContent = 'pages needed';
+        }
+
+    }
+
+    // check for read field
+    if (!readField.checked && !notreadField.checked) {
+
+        readnotreadFieldError.textContent = 'pls check either box';
+
+    }
+
+
+}
 
 
 // function that loops through the array and displays each book on the page
@@ -156,6 +262,11 @@ function cancelForm() {
     document.querySelector('#pages').value = null;
     document.getElementById('read').checked = false;
     document.getElementById('notread').checked = false;
+
+    authorFieldError.textContent = '';
+    titleFieldError.textContent = '';
+    pagesFieldError.textContent = '';
+    readnotreadFieldError.textContent = '';
 
     const form = document.querySelector('.form');
     form.style.visibility = 'hidden';

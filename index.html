@@ -11,15 +11,19 @@
 <body>
     <button id="newBook">New Book</button>
     <div class="form"  style="visibility: hidden">
-        <input id="author" placeholder="author" type="text" autocomplete="off">
-        <input id="title" placeholder="book title" type="text" autocomplete="off">
-        <input id="pages" placeholder="number of pages" type="number" autocomplete="off">
+        <input id="author" placeholder="author" type="text" autocomplete="off" required>
+        <span class="error" aria-live="polite"></span>
+        <input id="title" placeholder="book title" type="text" autocomplete="off" required>
+        <span class="error" aria-live="polite"></span>
+        <input id="pages" placeholder="number of pages" type="number" autocomplete="off" required>
+        <span class="error" aria-live="polite"></span>
         <div class="radio">
             <input type="radio" id="read" name="status" value="yes">
             <label for="read">Read</label><br>
             <input type="radio" id="notread" name="status" value="no">
-            <label for="notread">Not read yet</label>   
+            <label for="notread">Not read yet</label>
         </div>
+        <span class="radio error" aria-live="polite"></span>   
         <div class="formBtns">
             <button id="submit">Submit</button>
             <button id="cancel">Cancel</button>
