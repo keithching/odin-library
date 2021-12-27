@@ -6,21 +6,48 @@ body {
     min-height: 100vh;
 }
 
-.empty {
+.container {
+    margin-top: 20px;
     flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.container {
+.container .book-container {
     display: flex;
-    width: 1000px;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px 2px rgba(0,0,0,0.2);
+    width: 150px;
+    height: 200px;
+    border-radius: 10px;
+    transition: all 0.2s;
+    background-color: rgba(255, 255, 0, 0.2);
+}
+
+.removeBook, .updateBookStatus {
+    margin-top: 10px;
+    padding: 3px;
+    background-color: rgba(0,0,0,0.1);
+    border-style: hidden;
+    border-radius: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.removeBook:hover {
+    background-color: rgb(255, 0, 0, 0.5);
+}
+
+.updateBookStatus:hover {
+    background-color: rgb(0, 255, 0, 0.5);
 }
 
 #newBook, .form {
     color: rgb(65, 65, 65);
 }
-
 
 #newBook {
     margin-bottom: 10px;
@@ -83,52 +110,10 @@ body {
     margin-bottom: 20px;
 }
 
-
 .radio {
     display: flex;
     justify-content: flex-start;
 }
-
-
-.bookCard {
-    flex-shrink: 0;
-    border-style: solid;
-    border-width: thin;
-    border-color: rgba(109, 109, 109, 0.6);
-    border-radius: 20px;
-    width: 220px;
-    padding: 10px;
-    background-color: lightgrey;
-    background-clip: padding-box;
-    color: rgb(50, 49, 49);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    transition: 0.3s;
-}
-
-.bookCard p {
-    margin: 5px;
-}
-
-.bookCard:hover {
-    background-color: rgba(226, 188, 238, 0.906);
-    border-color: white;
-    transform: scale(1.05);
-}
-
-.remove, .changestatus {
-    background-color: white;
-    border-style: hidden;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
-.remove:hover, .changestatus:hover {
-    background-color: rgb(184, 184, 184);
-}
-
 
 .footer {
     color: black;
@@ -141,18 +126,15 @@ body {
     color: grey;
 }
 
-
 input {
     padding: 5px;
 }
-
 
 input:invalid {
     border-color: red;
     border-width: 1px;
     background-color: rgba(255, 0, 0, 0.2);
 }
-
 
 span.error {
     display: inline-block;
