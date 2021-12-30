@@ -29,15 +29,6 @@ const firebaseApp = initializeApp({
 // get Firebase Database
 const db = getFirestore(firebaseApp);
 
-
-// // an array of book objects
-// let myLibrary = [];
-
-// // adding a book to the myLibrary array
-// function addBookToLibrary(book) {
-//     myLibrary.push(book);
-// }
-
 // save a book to Firebase Database
 async function saveBook(book) {
     try {
